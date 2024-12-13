@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Feliz Navidad</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #1e1e1e;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .nieve {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .copo {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: caer 10s linear infinite;
+        }
+
+        @keyframes caer {
+            0% {
+                transform: translateY(-100px);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Personaliza el tamaño y el número de copos */
+        .copo:nth-child(1) { width: 10px; height: 10px; animation-duration: 12s; animation-delay: 0s; }
+        .copo:nth-child(2) { width: 15px; height: 15px; animation-duration: 14s; animation-delay: -2s; }
+        .copo:nth-child(3) { width: 8px; height: 8px; animation-duration: 10s; animation-delay: -3s; }
+        .copo:nth-child(4) { width: 12px; height: 12px; animation-duration: 16s; animation-delay: -1s; }
+        .copo:nth-child(5) { width: 20px; height: 20px; animation-duration: 18s; animation-delay: -4s; }
+    </style>
+
+
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="h.jpg" alt="">
+        <h2>
+            Christmas
+        </h2>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">home</a></li>
+            <li><a href="#">paginas</a></li>
+            <li><a href="#">ayuda</a></li>
+            <li><a href="#">contacto</a></li>
+        </ul>
+    </nav>
+
+</header>
+<section>
+    <div class="text">
+        <h1>Feliz Navidad</h1>
+        <p>
+            ¡Feliz Navidad y próspero Año Nuevo!
+
+            En esta época tan especial, quiero desearte momentos llenos de alegría, paz y amor. Que la magia de la Navidad ilumine tu corazón y que el 2025 venga cargado de nuevas oportunidades, éxitos y momentos inolvidables. 
+            
+            ¡Que tengas una Navidad llena de sonrisas! Que el espíritu navideño te inspire a seguir adelante con esperanza y gratitud, siempre disfrutando de lo más importante: la compañía.
+        </p>
+        <div class="btn">
+            <a href="#">Share a Fift</a>
+        </div>
+    </div>
+
+    <div class="image">
+        <img src="ima.png" alt="">
+    </div>
+</section>
+
+<div class="nieve">
+    <!-- Se agregan copos de nieve -->
+    <div class="copo"></div>
+    <div class="copo"></div>
+    <div class="copo"></div>
+    <div class="copo"></div>
+    <div class="copo"></div>
+    <!-- Agregar más copos según sea necesario -->
+</div>
+
+<script>
+    // Agregar más copos de nieve al azar
+    function crearCopos() {
+        let numeroCopos = 50;
+        let contenedor = document.querySelector('.nieve');
+        for (let i = 0; i < numeroCopos; i++) {
+            let copo = document.createElement('div');
+            copo.classList.add('copo');
+            let size = Math.random() * 15 + 5;
+            copo.style.width = `${size}px`;
+            copo.style.height = `${size}px`;
+            copo.style.left = `${Math.random() * 100}vw`; // ubicación aleatoria en el ancho de la pantalla
+            copo.style.animationDuration = `${Math.random() * 10 + 5}s`; // duraciones aleatorias
+            copo.style.animationDelay = `${Math.random() * 5}s`; // retardos aleatorios
+            contenedor.appendChild(copo);
+        }
+    }
+
+    crearCopos();
+</script>
+
+<audio autoplay loop>
+     <source src="videoplayback.mp3" type="mp3">
+
+    </audio>
+
+</body>
+</html>
